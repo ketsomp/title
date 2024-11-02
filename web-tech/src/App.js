@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
+import ContactPage from './contactPage';
+import AboutPage from './AboutPage';
 
-const LandingPage = () => {
+const LandingPage = ({ onContactClick }) => {
   return (
     <div className="landing-page">
-      <header className="navbar">
-        <div className="logo">MediaPlanner</div>
-        <nav>
-          <a href="#features">Features</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
       <section className="hero">
         <h1>Your Personal Media Planner</h1>
         <p>Organize, track, and discover movies, series, and books effortlessly.</p>
@@ -38,4 +32,39 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+const App = () => {
+  const [currentPage, setCurrentPage] = useState('landing');
+
+  const handleContactClick = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    setCurrentPage('contact'); // Set the current page to contact
+  };
+
+  const handleFeaturesClick = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    setCurrentPage('landing'); // Go back to the landing page
+  };
+
+  const handleAboutClick = (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    setCurrentPage('about'); // Assuming you want this to also show landing for now
+  };
+
+  return (
+    <div>
+      <header className="navbar">
+        <div className="logo">MediaPlanner</div>
+        <nav>
+          <a href="#" onClick={handleFeaturesClick}>Features</a>
+          <a href="#" onClick={handleAboutClick}>About</a>
+          <a href="#" onClick={handleContactClick}>Contact</a>
+        </nav>
+      </header>
+      {currentPage === 'landing' && <LandingPage />}
+      {currentPage === 'contact' && <ContactPage />}
+      {currentPage === 'about' && <AboutPage />}
+    </div>
+  );
+};
+
+export default App;
