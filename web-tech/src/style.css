@@ -1,12 +1,9 @@
-/* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* Base styles */
-/* Base styles */
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('./assets/cat.png');
@@ -26,7 +23,6 @@ body {
   min-height: 100vh;
 }
   
-  /* Navbar */
   .navbar {
     width: 100%;
     display: flex;
@@ -55,7 +51,6 @@ body {
     color: #1e90ff;
   }
   
-  /* Hero Section */
   .hero {
     text-align: center;
     padding: 60px 20px;
@@ -91,7 +86,6 @@ body {
     background-color: #ff4500;
   }
   
-  /* Features Section */
   .features {
     display: flex;
     flex-wrap: wrap;
@@ -124,8 +118,6 @@ body {
     text-align: center;
     color: rgba(102, 102, 102, 0.5);
   }
-
-  /* contact page */
 
   .contact-page {
     min-height: 100vh;

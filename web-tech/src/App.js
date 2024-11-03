@@ -36,18 +36,18 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('landing');
 
   const handleContactClick = (e) => {
-    e.preventDefault(); // Prevent default anchor behavior
-    setCurrentPage('contact'); // Set the current page to contact
+    e.preventDefault(); 
+    setCurrentPage('contact');
   };
 
   const handleFeaturesClick = (e) => {
-    e.preventDefault(); // Prevent default anchor behavior
-    setCurrentPage('landing'); // Go back to the landing page
+    e.preventDefault(); 
+    setCurrentPage('landing');
   };
 
   const handleAboutClick = (e) => {
-    e.preventDefault(); // Prevent default anchor behavior
-    setCurrentPage('about'); // Assuming you want this to also show landing for now
+    e.preventDefault(); 
+    setCurrentPage('about');
   };
 
   return (
