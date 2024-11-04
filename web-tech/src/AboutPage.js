@@ -5,12 +5,12 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <div className="about-description">
-        <h2>About (title)</h2>
+        <h2>About title</h2>
         <p>
-          One day, a certain brilliant developer of (title) was sitting around twiddling his thumbs when an ingenious idea, like a powerful stroke of lightning from Zeus, struck him. He thought, "Hey! Why don't I make a React app that functions as a media planner to help the average consumer curate their ideal fiction consumption experience?"
+          One day, a certain brilliant developer of title was sitting around twiddling his thumbs when an ingenious idea, like a powerful stroke of lightning from Zeus, struck him. He thought, "Hey! Why don't I make a React app that functions as a media planner to help the average consumer curate their ideal fiction consumption experience?"
         </p>
         <p>
-          (title) was made for average Joes, like you and me, to brush past the mundane days of Googling "top funny tv shows" online. It curates media based on your tastes, bringing you content that aligns with what we know you'll like! There will never be a dull moment when you have a (title) account!
+          title was made for average Joes, like you and me, to brush past the mundane days of Googling "top funny tv shows" online. It curates media based on your tastes, bringing you content that aligns with what we know you'll like! There will never be a dull moment when you have a title account!
         </p>
       </div>
 
