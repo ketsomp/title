@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import './style.css';
+import './LandingPage.css';
 import ContactPage from './contactPage';
 import AboutPage from './AboutPage';
+import LoginPage from './LoginPage';
+import ListPage from './ListPage';
 
-const LandingPage = ({ onContactClick }) => {
+const LandingPage = ({ onLoginClick }) => {
   return (
     <div className="landing-page">
       <section className="hero">
         <h1>Your Personal Media Planner</h1>
         <p>Organize, track, and discover movies, series, and books effortlessly.</p>
-        <button className="cta-button">Get Started</button>
+        <button className="cta-button" onClick={onLoginClick}>Get Started</button>
       </section>
       <section className="features" id="features">
         <div className="feature">
@@ -32,37 +34,54 @@ const LandingPage = ({ onContactClick }) => {
   );
 };
 
+
 const App = () => {
   const [currentPage, setCurrentPage] = useState('landing');
 
   const handleContactClick = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setCurrentPage('contact');
   };
 
   const handleFeaturesClick = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setCurrentPage('landing');
   };
 
   const handleAboutClick = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setCurrentPage('about');
+  };
+
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    setCurrentPage('login');
+  };
+
+  const handleLoginSubmit = () => {
+    setCurrentPage('list');
+    console.log("Navigating to Login Page");
   };
 
   return (
     <div>
       <header className="navbar">
-        <div className="logo">MediaPlanner</div>
+        <div className="logo">title</div>
         <nav>
-          <a href="#" onClick={handleFeaturesClick}>Features</a>
-          <a href="#" onClick={handleAboutClick}>About</a>
-          <a href="#" onClick={handleContactClick}>Contact</a>
+          <a href="https://vndb.org" onClick={handleFeaturesClick}>Home</a>
+          <a href="https://vndb.org" onClick={handleAboutClick}>About</a>
+          <a href="https://vndb.org" onClick={handleContactClick}>Contact</a>
         </nav>
       </header>
-      {currentPage === 'landing' && <LandingPage />}
+      {currentPage === 'landing' && (
+        <LandingPage onLoginClick={handleLoginClick} />
+      )}
       {currentPage === 'contact' && <ContactPage />}
       {currentPage === 'about' && <AboutPage />}
+      {currentPage === 'login' && (
+        <LoginPage onLoginClick={handleLoginSubmit} />
+      )}
+      {currentPage === 'list' && <ListPage />}
     </div>
   );
 };
