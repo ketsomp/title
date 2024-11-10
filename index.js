@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
 // /Users/aniketsompura/Documents/Github/title/index.js
 
 
@@ -24,4 +25,4 @@ function App() {
     );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('root'));

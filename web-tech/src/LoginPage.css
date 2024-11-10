@@ -44,3 +44,9 @@
 .login-page button:hover {
   background-color: #0056b3;
 }
+
+.register-link{
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

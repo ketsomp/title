@@ -4,6 +4,7 @@ import ContactPage from './contactPage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import ListPage from './ListPage';
+import RegisterPage from './RegisterPage';
 
 const LandingPage = ({ onLoginClick }) => {
   return (
@@ -34,7 +35,6 @@ const LandingPage = ({ onLoginClick }) => {
   );
 };
 
-
 const App = () => {
   const [currentPage, setCurrentPage] = useState('landing');
 
@@ -58,6 +58,11 @@ const App = () => {
     setCurrentPage('login');
   };
 
+  const handleRegisterClick = (e) => {
+    e.preventDefault();
+    setCurrentPage('register');
+  };
+
   const handleLoginSubmit = () => {
     setCurrentPage('list');
     console.log("Navigating to Login Page");
@@ -79,8 +84,10 @@ const App = () => {
       {currentPage === 'contact' && <ContactPage />}
       {currentPage === 'about' && <AboutPage />}
       {currentPage === 'login' && (
-        <LoginPage onLoginClick={handleLoginSubmit} />
-      )}
+  <LoginPage onLoginClick={handleLoginSubmit} onRegisterClick={handleRegisterClick} />
+)}
+
+      {currentPage === 'register' && <RegisterPage />}
       {currentPage === 'list' && <ListPage />}
     </div>
   );
