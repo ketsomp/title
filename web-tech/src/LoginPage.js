@@ -9,8 +9,7 @@ const LoginPage = ({ onLoginClick, onRegisterClick }) => {
         <input type="text" placeholder="Username" required />
         <input type="password" placeholder="Password" required />
 
-        <button type="button" onClick={() => {
-          console.log("Login button clicked");
+        <button type="submit" onClick={() => {
           onLoginClick();
         }}>
           Login
@@ -18,7 +17,7 @@ const LoginPage = ({ onLoginClick, onRegisterClick }) => {
       </form>
       <p>
         Don't have an account?{' '}
-        <span className="register-link" onClick={onRegisterClick}>
+        <span onClick={onRegisterClick}>
           Register
         </span>
       </p>
