@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './LandingPage.css';
 import ContactPage from './contactPage';
 import AboutPage from './AboutPage';
 import LoginPage from './LoginPage';
 import ListPage from './ListPage';
 import RegisterPage from './RegisterPage';
+import UserDetails from './UserDetails';
 
 const LandingPage = ({ onLoginClick }) => {
   return (
@@ -65,13 +67,17 @@ const App = () => {
 
   const handleLoginSubmit = () => {
     setCurrentPage('list');
-    console.log("Navigating to Login Page");
+  };
+
+  const handleRegisterSubmit = () => {
+    setCurrentPage('list');
   };
 
   return (
     <div>
       <header className="navbar">
-        <div className="logo">title</div>
+        <a className="logo" href="https://vndb.org" onClick={handleFeaturesClick}>title</a>
+        {/* remove href later */}
         <nav>
           <a href="https://vndb.org" onClick={handleFeaturesClick}>Home</a>
           <a href="https://vndb.org" onClick={handleAboutClick}>About</a>
@@ -87,7 +93,8 @@ const App = () => {
   <LoginPage onLoginClick={handleLoginSubmit} onRegisterClick={handleRegisterClick} />
 )}
 
-      {currentPage === 'register' && <RegisterPage />}
+      {currentPage === 'register' && (
+        <RegisterPage onRegisterClick={handleRegisterSubmit} onLoginClick={handleLoginClick}/>)}
       {currentPage === 'list' && <ListPage />}
     </div>
   );
