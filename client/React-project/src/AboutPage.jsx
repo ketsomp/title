@@ -1,9 +1,10 @@
+// AboutPage.jsx
 import React from 'react';
 import './AboutPage.css';
 
 const AboutPage = () => {
   return (
-    <div className="about-page">
+<div className="about-page">
       <div className="about-description">
         <h2>About title</h2>
         <p>
