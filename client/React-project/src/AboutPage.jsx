@@ -23,7 +23,7 @@ const AboutPage = () => {
             <h3><strong>Aniket Sompura</strong></h3>
             <h4>SRN: PES1UG23CS074</h4>
             <h4>CSE 2nd Year, Section-B</h4>
-            <p>Aniket is a good man with good anime taste. He started the project and he sure as damn well finish it</p>
+            <p>Aniket is a weird man with good anime taste. He plays basketball and plays slightly too many games.</p>
           </div>
         </div>
 
