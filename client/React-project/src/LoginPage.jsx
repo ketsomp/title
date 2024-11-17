@@ -5,20 +5,42 @@ import './LoginPage.css';
 const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    // Assuming login is successful, call onLogin and navigate to the home page
-    onLogin();
-    navigate('/home');
+
+    try {
+      const response = await fetch('http://localhost:5069/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.status === 200) {
+        sessionStorage.setItem('userEmail', email);
+        sessionStorage.setItem('userPassword', password);
+
+        onLogin(email, password);
+
+        navigate('/profile');
+      } else {
+        const errorData = await response.text();
+        setErrorMessage(errorData); 
+      }
+    } catch (error) {
+      setErrorMessage('Something went wrong. Please try again later.');
+    }
   };
 
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input

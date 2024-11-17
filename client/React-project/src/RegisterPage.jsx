@@ -5,20 +5,42 @@ import './RegisterPage.css';
 const RegisterPage = ({ onRegister }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle registration logic here
-    // Assuming registration is successful, call onRegister and navigate to the home page
-    onRegister();
-    navigate('/home');
+
+    try {
+      const response = await fetch('http://localhost:5069/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.status === 200) {
+        sessionStorage.setItem('userEmail', email);
+        sessionStorage.setItem('userPassword', password);
+
+        onRegister(email, password);
+
+        navigate('/profile');
+      } else {
+        const errorData = await response.text();
+        setErrorMessage(errorData); 
+      }
+    } catch (error) {
+      setErrorMessage('Something went wrong. Please try again later.');
+    }
   };
 
   return (
     <div className="register-container">
       <form className="register-form" onSubmit={handleSubmit}>
         <h2>Register</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
