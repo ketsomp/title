@@ -32,7 +32,7 @@ const ProfilePage = () => {
               <p><strong>Email:</strong> {email}</p>
               <p><strong>Password:</strong> {maskPassword(password)}</p>
             </div>
-            <button className="profile-button" onClick={() => window.location.href = '/login'}>Logout</button>
+            <button className="profile-button" onClick={() => window.location.href = '/'}>Logout</button>
           </>
         ) : (
           <p>No user information available</p>
