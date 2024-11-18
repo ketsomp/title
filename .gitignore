@@ -2,3 +2,4 @@
 /assets/.DS_Store
 __pycache__/
 /assets/levels/__pycache__/
+Server/users.bin
