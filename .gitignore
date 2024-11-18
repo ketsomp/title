@@ -3,3 +3,5 @@
 __pycache__/
 /assets/levels/__pycache__/
 Server/users.bin
+Server/users.bin
+*.bin
