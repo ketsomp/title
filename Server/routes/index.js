@@ -5,27 +5,6 @@ const router = express.Router()
 
 const axios = require('axios')
 
-const recommendedData = {
-    movies: [
-        { title: "The Godfather", imdbID: "1" },
-        { title: "Pulp Fiction", imdbID: "2" },
-        { title: "Inception", imdbID: "3" },
-        { title: "The Matrix", imdbID: "4" },
-        { title: "Interstellar", imdbID: "5" },
-        { title: "Saving Private Ryan", imdbID: "6" },
-        { title: "Fight Club", imdbID: "7" }
-    ],
-    tvShows: [
-        { title: "The Sopranos", imdbID: "101" },
-        { title: "Breaking Bad", imdbID: "102" },
-        { title: "Peaky Blinders", imdbID: "103" },
-        { title: "Two and a Half Men", imdbID: "104" },
-        { title: "Dexter", imdbID: "105" },
-        { title: "Succession", imdbID: "106" }
-    ]
-};
-
-
 router.get('/search-movie', async (req, res) => {
     const { title } = req.query
 
@@ -87,7 +66,7 @@ router.get('/movie-detail/:id', async (req, res) => {
 
 
 
-// POST new movie
+
 router.post('/movie', async (req, res) =>{
     const data = new Model({
         title: req.body.title,
@@ -110,7 +89,7 @@ router.post('/movie', async (req, res) =>{
     }
 })
 
-// GET all movies
+
 router.get("/movie", async (req, res) =>{
     try {
         const data = await Model.find()
@@ -120,7 +99,7 @@ router.get("/movie", async (req, res) =>{
     }
 })
 
-// GET movie by ID
+
 router.get("/movie/:id", async (req, res) => {
     try {
         const data = await Model.findById(req.params.id)
@@ -143,6 +122,7 @@ router.put("/movie/:id", async (req, res) => {
         res.status(500).json({ message: err.message })
     }
 })
+
 
 router.delete("/movie/:id", async (req, res) => {
     try {
@@ -172,10 +152,10 @@ router.get('/recommended', (req, res) => {
             { title: "Dexter", imdbID: "tt0773262" },
             { title: "Succession", imdbID: "tt7660850" }
         ]
-    };
+    }
 
-    res.json(recommendations);
-});
+    res.json(recommendations)
+})
 
 router.get('/trending', async (req, res) => {
     try {
@@ -188,7 +168,7 @@ router.get('/trending', async (req, res) => {
         ];
         res.json(trending);
     } catch (err) {
-        res.status(500).json({ message: err.message });
+        res.status(500).json({ message: err.message })
     }
 })
 module.exports = router

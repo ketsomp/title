@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './RegisterPage.css';
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './RegisterPage.css'
 
 const RegisterPage = ({ onRegister }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,20 +21,20 @@ const RegisterPage = ({ onRegister }) => {
       });
 
       if (response.status === 200) {
-        sessionStorage.setItem('userEmail', email);
-        sessionStorage.setItem('userPassword', password);
+        sessionStorage.setItem('userEmail', email)
+        sessionStorage.setItem('userPassword', password)
 
-        onRegister(email, password);
+        onRegister(email, password)
 
-        navigate('/profile');
+        navigate('/profile')
       } else {
-        const errorData = await response.text();
-        setErrorMessage(errorData); 
+        const errorData = await response.text()
+        setErrorMessage(errorData)
       }
     } catch (error) {
-      setErrorMessage('Something went wrong. Please try again later.');
+      setErrorMessage('Something went wrong. Please try again later.')
     }
-  };
+  }
 
   return (
     <div className="register-container">

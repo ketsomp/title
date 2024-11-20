@@ -23,7 +23,7 @@ const AboutPage = () => {
             <h3><strong>Aniket Sompura</strong></h3>
             <h4>SRN: PES1UG23CS074</h4>
             <h4>CSE 2nd Year, Section-B</h4>
-            <p>Aniket is a weird man with good anime taste. He plays basketball and plays slightly too many games.</p>
+            <p>Aniket is a weird man with good anime taste. He plays basketball and slightly too many games.</p>
           </div>
         </div>
 
@@ -33,7 +33,7 @@ const AboutPage = () => {
           <h3><strong>Amshul Ninan Varikatakutty</strong></h3>
             <h4>SRN: PES1UG23CS066</h4>
             <h4>CSE 2nd Year, Section-B</h4>
-            <p>Amshul is a man with good taste in cars. But he's a real one, and motivated and carried the team to success.</p>
+            <p>Amshul is a man with good taste in cars. But he's a real one, and whose motivation carried the team to success.</p>
           </div>
         </div>
 
@@ -43,7 +43,7 @@ const AboutPage = () => {
           <h3><strong>Aniruddha Budihal</strong></h3>
             <h4>SRN: PES1UG23CS076</h4>
             <h4>CSE 2nd Year, Section-B</h4>
-            <p>Well known among badminton and LEGO circles. His thirst for knowledge and desire to learn new technologies fired up the group and was our burning spirit.</p>
+            <p>Well known among Formula 1 and LEGO circles. His thirst for knowledge and desire to learn new technologies fired up the group and was our burning spirit.</p>
           </div>
         </div>
 

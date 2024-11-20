@@ -6,7 +6,6 @@ export default function MoviesList() {
     const [query, setQuery] = useState('')
     const [error, setError] = useState('')
 
-    // Fetch movies based on the search query
     const fetchMovies = async (searchQuery) => {
         try {
             const response = await axios.get(`http://localhost:3000/api/search-movie?title=${searchQuery}`)
@@ -14,7 +13,7 @@ export default function MoviesList() {
             setError('')
         }catch(err){
             setMovies([])
-            setError('Movies not found')
+            setError('Movies not found :(')
         }
     }
 

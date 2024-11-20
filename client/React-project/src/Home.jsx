@@ -12,12 +12,10 @@ export default function Home(){
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        // Fetch recommended movies and TV shows
         axios.get("http://localhost:3000/api/recommended")
             .then((res) => setRecommended(res.data))
             .catch((err) => console.error(err))
 
-        // Fetch trending content
         axios.get("http://localhost:3000/api/trending")
             .then((res) => setTrending(res.data))
             .catch((err) => console.error(err))
@@ -37,26 +35,23 @@ export default function Home(){
             setSearchResults(response.data)
         } catch (err) {
             setSearchResults([])
-            setError(err.response?.data?.message || 'Error searching movies')
+            setError(err.response?.data?.message || 'Error searching movies :(')
         }finally{
             setIsLoading(false)
         }
     }
 
-    // Debounce the search function
     const debouncedFetch = useCallback(
         debounce((searchQuery) => fetchMovies(searchQuery), 500),
         []
     )
 
-    // Handle input change
     const handleSearchInput = (e) => {
         const value = e.target.value;
         setQuery(value);
         debouncedFetch(value);
     };
 
-    // Helper function to get valid image URL or fallback
     const getImageUrl = (movie) => {
         if (movie.images && movie.images.length > 0 && movie.images[0] !== "N/A") {
             return movie.images[0];
@@ -77,10 +72,8 @@ export default function Home(){
                 {isLoading && <div className="loading-indicator">Searching...</div>}
             </div>
 
-            {/* Error Message */}
             {error && <div className="error-message">{error}</div>}
 
-            {/* Search Results */}
             {searchResults.length > 0 && (
                 <section className="search-results">
                     <h2>Search Results</h2>
@@ -117,7 +110,6 @@ export default function Home(){
 
             {error && <div>{error}</div>}
 
-            {/* Recommended Movies and TV Shows */}
             <section className="recommended">
                 <h2>Recommended Movies</h2>
                 <div className="card-container">
@@ -138,7 +130,6 @@ export default function Home(){
                 </div>
             </section>
 
-            {/* Trending Section */}
             <section className="trending">
                 <h2>Trending</h2>
                 <div className="card-container">
@@ -150,5 +141,5 @@ export default function Home(){
                 </div>
             </section>
         </div>
-    );
+    )
 }
