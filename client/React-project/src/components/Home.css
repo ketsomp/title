@@ -1,0 +1,130 @@
+
+.home-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.loading-indicator {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.error-message {
+    color: #dc3545;
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #fff3f3;
+    border-radius: 4px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+.movie-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.movie-poster-container {
+    position: relative;
+    padding-top: 150%; /* 2:3 aspect ratio */
+    overflow: hidden;
+}
+
+.movie-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-poster {
+    transform: scale(1.05);
+}
+
+.movie-info {
+    padding: 12px;
+}
+
+.movie-info h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.movie-year {
+    color: #666;
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.movie-rating {
+    color: #f5c518;
+    font-weight: 600;
+    margin: 4px 0;
+}
+
+.movie-director {
+    font-size: 13px;
+    color: #666;
+    margin: 4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 16px;
+    }
+
+    .movie-info h3 {
+        font-size: 14px;
+    }
+}
